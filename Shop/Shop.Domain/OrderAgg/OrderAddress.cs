@@ -17,7 +17,7 @@ public class OrderAddress : BaseEntity
     }
 
 
-    public long OrderId { get; private set; }
+    public long OrderId { get; internal set; }
     public string Shire { get; private set; }
     public string City { get; private set; }
     public string PostalCode { get; private set; }

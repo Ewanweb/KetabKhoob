@@ -1,7 +1,7 @@
 ﻿using Common.Application;
 using Shop.Domain.CommentAgg;
 
-namespace Shop.Application.Comments.Edit;
+namespace Shop.Application.Comments.ChangeStatus;
 
 public class ChangeStatusCommandHandler : IBaseCommandHandler<ChangeStatusCommand>
 {

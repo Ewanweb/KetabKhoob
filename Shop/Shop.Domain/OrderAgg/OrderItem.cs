@@ -19,6 +19,18 @@ public class OrderItem : BaseEntity
     public int Price { get; private set; }
     public int TotalPrice => Count * Price;
 
+    public void IncreaseCount(int count)
+    {
+        Count += count;
+    }
+
+    public void DecreaseCount(int count)
+    {
+        if (Count is 1 || Count - count <= 0)
+            return;
+
+        Count -= count;
+    }
 
     public void ChangeCount(int newCount)
     {

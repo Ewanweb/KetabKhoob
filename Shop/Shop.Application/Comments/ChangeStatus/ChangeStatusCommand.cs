@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Common.Application;
 using Shop.Domain.CommentAgg;
 
-namespace Shop.Application.Comments.Edit
+namespace Shop.Application.Comments.ChangeStatus
 {
     public record ChangeStatusCommand(long Id, CommentStatus Status) : IBaseCommand;
 }
