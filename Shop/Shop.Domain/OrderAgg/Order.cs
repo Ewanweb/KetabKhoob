@@ -16,11 +16,10 @@ namespace Shop.Domain.OrderAgg
         {
             
         }
-        public Order(OrderStatus status, OrderDiscount? discount, OrderAddress? address)
+        public Order(long userId)
         {
-            Status = status;
-            Discount = discount;
-            Address = address;
+            UserId = userId;
+            Status = OrderStatus.Pending;
             Items = new List<OrderItem>();
         }
         public long UserId { get; private set; }
@@ -50,11 +49,22 @@ namespace Shop.Domain.OrderAgg
 
         public void AddItem(OrderItem item)
         {
+            ChangeOrderGuard();
+            
+            var oldItem = Items.FirstOrDefault(x => x.InventoryId == item.InventoryId);
+
+            if (oldItem != null)
+            {
+                oldItem.ChangeCount(item.Count + oldItem.Count);
+                return;
+            }
+
             Items.Add(item);
         }
 
         public void RemodeItem(long itemId)
         {
+            ChangeOrderGuard();
             var currentItem = Items.FirstOrDefault(x => x.Id == itemId);
 
             if (currentItem is null)
@@ -65,6 +75,7 @@ namespace Shop.Domain.OrderAgg
 
         public void ChangeCountItem(int itemId, int newCount)
         {
+            ChangeOrderGuard();
             var currentItem = Items.FirstOrDefault(x => x.Id == itemId);
 
             if (currentItem is null)
@@ -82,7 +93,14 @@ namespace Shop.Domain.OrderAgg
 
         public void CheckOut(OrderAddress orderAddress)
         {
+            ChangeOrderGuard();
             Address = orderAddress;
+        }
+
+        public void ChangeOrderGuard()
+        {
+            if (Status != OrderStatus.Pending)
+                throw new InvalidDomainDataException("امکان ثبت محصول در این سفارش وجود ندارد");
         }
     }
 }
