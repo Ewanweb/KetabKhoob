@@ -70,14 +70,15 @@ namespace Shop.Domain.ProductAgg
             Images.Add(image);
         }
 
-        public void RemoveImage(long id)
+        public string RemoveImage(long id)
         {
             var images = Images.FirstOrDefault(x => x.Id == id);
 
             if (images is null)
-                return;
+                throw new NullOrEmptyDomainDataException("عکس یافت نشد");
 
             Images.Remove(images);
+            return images.ImageName;
         }
 
         public void SetSpecification(List<ProductSpecification> specifications)
