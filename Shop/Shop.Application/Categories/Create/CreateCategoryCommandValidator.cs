@@ -1,11 +1,11 @@
 ﻿using Common.Application.Validation;
 using FluentValidation;
 
-namespace Shop.Application.Edit;
+namespace Shop.Application.Categories.Create;
 
-public class EditCategoryCommandValidator : AbstractValidator<EditCategoryCommand>
+public class CreateCategoryCommandValidator : AbstractValidator<CreateCategoryCommand>
 {
-    public EditCategoryCommandValidator()
+    public CreateCategoryCommandValidator()
     {
         RuleFor(x => x.Title)
             .NotEmpty().NotNull().WithMessage(ValidationMessages.required("عنوان"));

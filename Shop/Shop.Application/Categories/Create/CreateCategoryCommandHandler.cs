@@ -2,7 +2,7 @@
 using Shop.Domain.CategoryAgg;
 using Shop.Domain.CategoryAgg.Services;
 
-namespace Shop.Application.Create;
+namespace Shop.Application.Categories.Create;
 
 public class CreateCategoryCommandHandler : IBaseCommandHandler<CreateCategoryCommand>
 {

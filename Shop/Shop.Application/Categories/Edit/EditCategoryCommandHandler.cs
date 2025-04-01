@@ -2,7 +2,7 @@
 using Shop.Domain.CategoryAgg;
 using Shop.Domain.CategoryAgg.Services;
 
-namespace Shop.Application.Edit;
+namespace Shop.Application.Categories.Edit;
 
 public class EditCategoryCommandHandler : IBaseCommandHandler<EditCategoryCommand>
 {

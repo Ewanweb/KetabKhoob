@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Common.Application;
 using Common.Domain.ValueObjects;
 
-namespace Shop.Application.Create
+namespace Shop.Application.Categories.Create
 {
-    public record CreateCategoryCommand(string Title, string Slug, SeoData SeoData ) : IBaseCommand;
+    public record CreateCategoryCommand(string Title, string Slug, SeoData SeoData) : IBaseCommand;
 }

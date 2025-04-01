@@ -2,7 +2,7 @@
 using Shop.Domain.CategoryAgg;
 using Shop.Domain.CategoryAgg.Services;
 
-namespace Shop.Application.AddChild;
+namespace Shop.Application.Categories.AddChild;
 
 public class AddChildCategoryCommandHandler : IBaseCommandHandler<AddChildCategoryCommand>
 {
