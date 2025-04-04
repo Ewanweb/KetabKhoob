@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Common.Domain;
 using Common.Domain.Exceptions;
+using Shop.Domain.SellerAgg.Services;
 
 namespace Shop.Domain.SellerAgg
 {
@@ -22,13 +23,17 @@ namespace Shop.Domain.SellerAgg
             
         }
 
-        public Seller(long userId, string shopName, string nationalCode)
+        public Seller(long userId, string shopName, string nationalCode, ISellerDomainService domainService)
         {
             Guard(shopName, nationalCode);
+
             UserId = userId;
             ShopName = shopName;
             NationalCode = nationalCode;
             Inventories = new List<SellerInventory>();
+
+            if (domainService.CheckSellerInformation(this) is false)
+                throw new InvalidDomainDataException("اطلاعات فروشنده نامعتبر است");
         }
 
         public void ChangeStatus(SellerStatus status)
@@ -37,9 +42,13 @@ namespace Shop.Domain.SellerAgg
             LastUpdate = DateTime.Now;
         }
 
-        public void Edit(string shopName, string nationalCode)
+        public void Edit(string shopName, string nationalCode, ISellerDomainService domainService)
         {
             Guard(shopName, nationalCode);
+
+            if (domainService.NationalCodeIsExist(nationalCode))
+                throw new InvalidDomainDataException("کد ملی تکراری است");
+
             ShopName = shopName;
             NationalCode = nationalCode;
             LastUpdate = DateTime.Now;
