@@ -10,15 +10,26 @@ public class SellerInventory : BaseEntity
     public long ProductId { get; private set; }
     public int Count { get; private set; }
     public int Price { get; private set; }
+    public int? PercentageDiscount { get; private set; }
 
-    public SellerInventory(long sellerId, long productId, int count, int price)
+    public SellerInventory(long productId, int count, int price, int? percentageDiscount)
     {
         if (price < 1 || count < 0)
             throw new InvalidDomainDataException();
 
-        SellerId = sellerId;
         ProductId = productId;
         Count = count;
         Price = price;
+        PercentageDiscount = percentageDiscount;
+    }
+
+    public void Edit(int count, int price, int? percentageDiscount)
+    {
+        if (price < 1 || count < 0)
+            throw new InvalidDomainDataException();
+
+        Count = count;
+        Price = price;
+        PercentageDiscount = percentageDiscount;
     }
 }

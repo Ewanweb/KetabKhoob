@@ -23,6 +23,8 @@ public class EditSellerCommandHandler : IBaseCommandHandler<EditSellerCommand>
 
         seller.Edit(request.ShopName, request.NationalCode, _sellerDomainService);
 
+        seller.ChangeStatus(request.Status);
+
         await _sellerRepository.Save();
 
         return OperationResult.Success();

@@ -62,25 +62,15 @@ namespace Shop.Domain.SellerAgg
             Inventories.Add(inventory);
         }
 
-        public void EditInventory(SellerInventory inventory)
-        {
-            var inventories = Inventories.FirstOrDefault(f => f.ProductId == inventory.ProductId);
-
-            if (inventories is null)
-                return;
-            
-            Inventories.Remove(inventories);
-            Inventories.Add(inventory);
-        }
-
-        public void DeleteInventory(long inventoryId)
+        public void EditInventory(long inventoryId, int count, int price, int? perecentageDiscount)
         {
             var inventories = Inventories.FirstOrDefault(f => f.Id == inventoryId);
 
             if (inventories is null)
                 throw new NullOrEmptyDomainDataException("محصول یافت نشد");
 
-            Inventories.Remove(inventories);
+            //Todo Check Inventories
+            inventories.Edit(count, price, perecentageDiscount);
         }
 
         public void Guard(string shopName, string nationalCode)
