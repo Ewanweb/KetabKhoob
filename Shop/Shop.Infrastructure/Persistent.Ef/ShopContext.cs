@@ -30,6 +30,7 @@ namespace Shop.Infrastructure.Persistent.Ef
         public DbSet<Product> Products { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Seller> Sellers { get; set; }
+        public DbSet<SellerInventory> Inventories { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<User> Users { get; set; }

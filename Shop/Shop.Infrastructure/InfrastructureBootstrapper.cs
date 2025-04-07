@@ -24,6 +24,7 @@ using Shop.Infrastructure.Persistent.Ef.UserAgg;
 using Shop.Domain.SellerAgg.Repository;
 using Shop.Domain.SiteEntities.Banners;
 using Shop.Domain.SiteEntities.Sliders;
+using Shop.Infrastructure.Persistent.Dapper;
 using Shop.Infrastructure.Persistent.Ef.SiteEntities.Banners;
 using Shop.Infrastructure.Persistent.Ef.SiteEntities.Sliders;
 
@@ -44,7 +45,7 @@ namespace Shop.Infrastructure
             services.AddScoped<ICommentRepository, CommentRepository>();
             services.AddScoped<IShippingMethodRepository, ShippingMethodRepository>();
 
-
+            services.AddScoped(_ => new DapperContext(connectionString));
             services.AddDbContext<ShopContext>(option =>
             {
                 option.UseSqlServer(connectionString);
