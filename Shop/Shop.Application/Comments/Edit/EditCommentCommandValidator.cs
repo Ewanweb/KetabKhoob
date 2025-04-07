@@ -4,7 +4,7 @@ using Shop.Application.Comments.ChangeStatus;
 
 namespace Shop.Application.Comments.Edit;
 
-public class EditCommentCommandValidator : AbstractValidator<ChangeStatusCommand>
+public class EditCommentCommandValidator : AbstractValidator<EditCommentCommand>
 {
     public EditCommentCommandValidator()
     {

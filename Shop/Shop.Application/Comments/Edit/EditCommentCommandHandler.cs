@@ -4,7 +4,7 @@ using Shop.Domain.CommentAgg;
 
 namespace Shop.Application.Comments.Edit;
 
-public class EditCommentCommandHandler : IBaseCommandHandler<ChangeStatusCommand>
+public class EditCommentCommandHandler : IBaseCommandHandler<EditCommentCommand>
 {
     private readonly ICommentRepository _repository;
 
@@ -12,7 +12,7 @@ public class EditCommentCommandHandler : IBaseCommandHandler<ChangeStatusCommand
     {
         _repository = repository;
     }
-    public async Task<OperationResult> Handle(ChangeStatusCommand request, CancellationToken cancellationToken)
+    public async Task<OperationResult> Handle(EditCommentCommand request, CancellationToken cancellationToken)
     {
         var comment = await _repository.GetTracking(request.Id);
 

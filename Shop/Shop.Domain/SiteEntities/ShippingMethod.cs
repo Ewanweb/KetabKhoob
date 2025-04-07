@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Common.Domain;
 
-namespace Shop.Domain.OrderAgg.ValueObjects
+namespace Shop.Domain.SiteEntities
 {
-    public class ShippingMethod : ValueObject
+    public class ShippingMethod : BaseEntity
     {
         public ShippingMethod(string shippingTypes, int shippingCost)
         {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Common.Application;
 using Microsoft.AspNetCore.Http;
-using Shop.Domain.SiteEntities.Banner;
+using Shop.Domain.SiteEntities.Banners;
 
 namespace Shop.Application.SiteEntities.Banners.Create
 {

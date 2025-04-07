@@ -1,7 +1,7 @@
 ﻿using Common.Application;
 using Shop.Domain.OrderAgg;
 using Shop.Domain.OrderAgg.Repository;
-using Shop.Domain.SellerAgg;
+using Shop.Domain.SellerAgg.Repository;
 
 namespace Shop.Application.Orders.AddItem;
 

@@ -1,5 +1,6 @@
 ﻿using Common.Application;
 using Shop.Domain.SellerAgg;
+using Shop.Domain.SellerAgg.Repository;
 
 namespace Shop.Application.Sellers.AddInventory;
 
@@ -17,7 +18,7 @@ public class AddSellerInventoryCommandHandler : IBaseCommandHandler<AddSellerInv
         if (seller == null)
             return OperationResult.NotFound();
 
-        var inventory = new SellerInventory(request.SellerId, request.ProductId, request.Count, request.Price, request.PercentageDiscount);
+        var inventory = new SellerInventory(request.ProductId, request.Count, request.Price, request.PercentageDiscount);
 
         seller.AddInventory(inventory);
 

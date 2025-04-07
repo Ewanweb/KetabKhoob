@@ -1,9 +1,9 @@
 ﻿using Common.Application;
 using Common.Application.FileUtil.Interfaces;
 using Shop.Application._Utilities;
-using Shop.Domain.SiteEntities.Banner;
+using Shop.Domain.SiteEntities.Banners;
 
-namespace Shop.Application.SiteEntities.Banners.Create;
+namespace Shop.Application.SiteEntities.Banners.Edit;
 
 public class EditBannerCommandHandler : IBaseCommandHandler<EditBannerCommand>
 {
@@ -20,7 +20,7 @@ public class EditBannerCommandHandler : IBaseCommandHandler<EditBannerCommand>
     {
         var banner = await _bannerRepository.GetTracking(request.Id);
 
-        if (banner is null )
+        if (banner is null)
             return OperationResult.NotFound();
 
         var imageName = banner.ImageName;

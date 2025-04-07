@@ -17,13 +17,13 @@ namespace Shop.Application.Products.Edit
         public string Description { get; private set; }
         public long CategoryId { get; private set; }
         public long SubCategoryId { get; private set; }
-        public string SecondarySubCategoryId { get; private set; }
+        public long SecondarySubCategoryId { get; private set; }
         public string Slug { get; private set; }
         public SeoData SeoData { get; private set; }
         public Dictionary<string, string> Specifications { get; private set; }
 
         public EditProductCommand(long productId, string title, IFormFile imageFile, string description, long categoryId, long subCategoryId,
-            string secondarySubCategoryId, string slug, SeoData seoData, Dictionary<string, string> specifications)
+            long secondarySubCategoryId, string slug, SeoData seoData, Dictionary<string, string> specifications)
         {
             ProductId = productId;
             Title = title;

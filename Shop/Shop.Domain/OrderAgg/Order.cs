@@ -7,6 +7,7 @@ using Common.Domain;
 using Common.Domain.Exceptions;
 using Shop.Domain.OrderAgg.Enums;
 using Shop.Domain.OrderAgg.ValueObjects;
+using Shop.Domain.SiteEntities;
 
 namespace Shop.Domain.OrderAgg
 {

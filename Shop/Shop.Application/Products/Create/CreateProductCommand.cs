@@ -17,12 +17,12 @@ namespace Shop.Application.Products.Create
         public string Description { get; private set; }
         public long CategoryId { get; private set; }
         public long SubCategoryId { get; private set; }
-        public string SecondarySubCategoryId { get; private set; }
+        public long SecondarySubCategoryId { get; private set; }
         public string Slug { get; private set; }
         public SeoData SeoData { get; private set; }
         public Dictionary<string, string> Specifications { get; private set; }
 
-        public CreateProductCommand(string title, IFormFile imageFile, string description, long categoryId, long subCategoryId, string secondarySubCategoryId, string slug, SeoData seoData, Dictionary<string, string> specifications)
+        public CreateProductCommand(string title, IFormFile imageFile, string description, long categoryId, long subCategoryId, long secondarySubCategoryId, string slug, SeoData seoData, Dictionary<string, string> specifications)
         {
             Title = title;
             ImageFile = imageFile;

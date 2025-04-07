@@ -1,7 +1,7 @@
 ﻿using Common.Application;
 using Common.Application.FileUtil.Interfaces;
 using Shop.Application._Utilities;
-using Shop.Domain.SiteEntities.Slider;
+using Shop.Domain.SiteEntities.Sliders;
 
 namespace Shop.Application.SiteEntities.Sliders.Create;
 

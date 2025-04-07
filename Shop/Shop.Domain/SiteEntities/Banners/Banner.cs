@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Common.Domain;
 using Common.Domain.Exceptions;
 
-namespace Shop.Domain.SiteEntities.Banner
+namespace Shop.Domain.SiteEntities.Banners
 {
     public class Banner : BaseEntity
     {

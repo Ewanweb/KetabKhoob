@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Common.Domain;
 using Common.Domain.Exceptions;
 
-namespace Shop.Domain.SiteEntities.Slider
+namespace Shop.Domain.SiteEntities.Sliders
 {
     public class Slider : BaseEntity
     {

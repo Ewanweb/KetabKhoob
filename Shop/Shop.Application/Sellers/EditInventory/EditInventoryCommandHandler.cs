@@ -1,5 +1,5 @@
 ﻿using Common.Application;
-using Shop.Domain.SellerAgg;
+using Shop.Domain.SellerAgg.Repository;
 
 namespace Shop.Application.Sellers.EditInventory;
 
