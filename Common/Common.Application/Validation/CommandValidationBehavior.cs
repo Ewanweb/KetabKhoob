@@ -38,6 +38,8 @@ namespace Common.Application.Validation
 
                 throw new InvalidCommandException(errorBuilder.ToString(), null);
             }
+
+            // توی ورژن جدید، next باید با token صدا زده بشه
             var response = await next();
             return response;
         }

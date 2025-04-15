@@ -11,7 +11,7 @@ public class GetOrdersByFilterQueryHandler(ShopContext context) : IQueryHandler<
     public async Task<OrderFilterResult> Handle(GetOrdersByFilterQuery request, CancellationToken cancellationToken)
     {
         var @params = request.FilterParams;
-        var result = _context.Orders.OrderByDescending(d => d.Id).AsQueryable();
+        var result =  _context.Orders.OrderByDescending(d => d.Id).AsQueryable();
 
         switch (@params)
         {
@@ -36,7 +36,7 @@ public class GetOrdersByFilterQueryHandler(ShopContext context) : IQueryHandler<
         var model = new OrderFilterResult()
         {
             Data = await result.Skip(skip).Take(@params.Take)
-                .Select(order => order.MapFlteFilterData(_context))
+                .Select(order => order.MapFilterData(_context))
                 .ToListAsync(cancellationToken),
             FilterParams = @params
         };

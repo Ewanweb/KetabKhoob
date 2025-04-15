@@ -14,9 +14,9 @@ namespace Shop.Domain.UserAgg
 {
     public class User : AggregateRoot
     {
-        public User(string name, string family, PhoneNumber phoneNumber, string email, string password, Gender gender,IDomainUserService domainService)
+        public User(string name, string family, string phoneNumber, string email, string password, Gender gender,IUserDomainService userDomainService)
         {
-            Guard(phoneNumber, email, domainService);
+            Guard(phoneNumber, email, userDomainService);
             Name = name;
             Family = family;
             PhoneNumber = phoneNumber;
@@ -26,9 +26,14 @@ namespace Shop.Domain.UserAgg
             AvatarName = "noImage.png";
         }
 
+        private User()
+        {
+            
+        }
+
         public string Name { get; private set; }
         public string Family { get; private set; }
-        public PhoneNumber PhoneNumber { get; private set; }
+        public string PhoneNumber { get; private set; }
         public string Email { get; private set; }
         public string Password { get; private set; }
         public Gender Gender { get; private set; }
@@ -37,9 +42,9 @@ namespace Shop.Domain.UserAgg
         public List<Wallet> Wallets { get; private set; }
         public List<UserAddress> Addresses { get; private set; }
 
-        public void Edit(string name, string family, PhoneNumber phoneNumber, string email, Gender gender, IDomainUserService domainService)
+        public void Edit(string name, string family, string phoneNumber, string email, Gender gender, IUserDomainService userDomainService)
         {
-            Guard(phoneNumber, email, domainService);
+            Guard(phoneNumber, email, userDomainService);
             Name = name;
             Family = family;
             PhoneNumber = phoneNumber;
@@ -47,9 +52,9 @@ namespace Shop.Domain.UserAgg
             Gender = gender;
         }
 
-        public static User RegisterUser(PhoneNumber phoneNumber, string password, IDomainUserService domainService)
+        public static User RegisterUser(string phoneNumber, string password, IUserDomainService userDomainService)
         {
-            return new User("", "", phoneNumber, null, password, Gender.None, domainService);
+            return new User("", "", phoneNumber, null, password, Gender.None, userDomainService);
         }
 
         public void SetAvatar(string imageName)
@@ -100,7 +105,7 @@ namespace Shop.Domain.UserAgg
             Roles.AddRange(roles);
         }
 
-        public void Guard(PhoneNumber phoneNumber, string email, IDomainUserService domainService)
+        public void Guard(string phoneNumber, string email, IUserDomainService userDomainService)
         {
             if (phoneNumber is null)
                 throw new NullOrEmptyDomainDataException("شماره موبایل خالی است");
@@ -113,7 +118,7 @@ namespace Shop.Domain.UserAgg
 
 
             if (email != Email)
-                if (domainService.IsEmailExist(email))
+                if (userDomainService.IsEmailExist(email))
                     throw new InvalidDomainDataException("ایمیل تکراری است");
 
 

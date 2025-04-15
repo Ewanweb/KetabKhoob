@@ -19,6 +19,11 @@ public class UserAddress : BaseEntity
         Nationalcode = nationalcode;
         ActiveAddress = false;
     }
+
+    private UserAddress()
+    {
+        
+    }
     public long UserId { get; internal set; }
     public string Shire { get; private set; }
     public string City { get; private set; }

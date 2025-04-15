@@ -21,11 +21,6 @@ namespace Shop.Infrastructure.Persistent.Ef.OrderAgg
                     .HasMaxLength(50);
             });
 
-            builder.OwnsOne(b => b.ShippingMethod, options =>
-            {
-                options.Property(b => b.ShippingTypes)
-                    .HasMaxLength(50);
-            });
 
             builder.OwnsMany(b => b.Items, options =>
             {

@@ -18,7 +18,7 @@ namespace Shop.Domain.ProductAgg
         public string Description { get; private set; }
         public long CategoryId { get; private set; }
         public long SubCategoryId { get; private set; }
-        public long SecondarySubCategoryId { get; private set; }
+        public long? SecondarySubCategoryId { get; private set; }
         public string Slug { get; private set; }
         public SeoData SeoData { get; private set; }
         public List<ProductImage> Images { get; private set; }
@@ -30,7 +30,7 @@ namespace Shop.Domain.ProductAgg
         }
 
         public Product(string title, string imageName, string description, long categoryId, long subCategoryId,
-            long secondarySubCategoryId, string slug, SeoData seoData, IProductDomainService domainService)
+            long? secondarySubCategoryId, string slug, SeoData seoData, IProductDomainService domainService)
         {
             NullOrEmptyDomainDataException.CheckString(imageName, nameof(imageName));
             Guard(title, slug, description, domainService);
@@ -45,7 +45,7 @@ namespace Shop.Domain.ProductAgg
         }
 
         public void Edit(string title, string description, long categoryId, long subCategoryId,
-            long secondarySubCategoryId, string slug, SeoData seoData, IProductDomainService domainService)
+            long? secondarySubCategoryId, string slug, SeoData seoData, IProductDomainService domainService)
         {
             Guard(title, slug, description, domainService);
             Title = title;

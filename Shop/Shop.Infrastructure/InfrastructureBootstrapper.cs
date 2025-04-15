@@ -38,7 +38,7 @@ namespace Shop.Infrastructure
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
-            //services.AddScoped<ISellerRepository, SellerR>();
+            services.AddScoped<ISellerRepository, SellerRepository>();
             services.AddScoped<IBannerRepository, BannerRepository>();
             services.AddScoped<ISliderRepository, SliderRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
