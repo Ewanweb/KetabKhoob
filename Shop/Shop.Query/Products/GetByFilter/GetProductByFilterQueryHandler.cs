@@ -1,4 +1,5 @@
 ﻿using Common.Query;
+using Microsoft.EntityFrameworkCore;
 using Shop.Infrastructure.Persistent.Ef;
 using Shop.Query.Products.DTOs;
 
@@ -28,11 +29,11 @@ public class GetProductByFilterQueryHandler(ShopContext context) : IQueryHandler
 
         var model = new ProductFilterResult()
         {
-            Data =  result
+            Data = await  result
                 .Skip(skip)
                 .Take(@params.Take)
                 .Select(x => x.MapListData())
-                .ToList(),
+                .ToListAsync(cancellationToken : cancellationToken),
 
             FilterParams = @params,
         };
