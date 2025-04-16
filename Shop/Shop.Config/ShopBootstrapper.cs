@@ -12,6 +12,7 @@ using Shop.Domain.ProductAgg.ProductDomainService;
 using Shop.Domain.SellerAgg.Services;
 using Shop.Domain.UserAgg.Services;
 using Shop.Infrastructure;
+using Shop.Presentation.Facade;
 using Shop.Query.Categories.DTOs;
 
 namespace Shop.Config
@@ -37,6 +38,9 @@ namespace Shop.Config
 
 
             services.AddValidatorsFromAssembly(typeof(Directories).Assembly);
+
+            services.InitFacadeDependency();
+
             return services;
         }
     }
