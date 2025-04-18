@@ -11,9 +11,9 @@ namespace Shop.Presentation.Facade.Categories;
 
 public interface ICategoryFacade
 {
-    Task<OperationResult> AddChild(AddChildCategoryCommand command);
+    Task<OperationResult<long>> AddChild(AddChildCategoryCommand command);
     Task<OperationResult> Edit(EditCategoryCommand command);
-    Task<OperationResult> Create(CreateCategoryCommand command);
+    Task<OperationResult<long>> Create(CreateCategoryCommand command);
     Task<OperationResult> Remove(long categoryId);
 
     Task<CategoryDto> GetCategoryById(long id);
