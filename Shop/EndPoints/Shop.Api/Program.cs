@@ -1,5 +1,6 @@
  using Common.Application;
-using Shop.Config;
+ using Common.AspNetCore.Middlewares;
+ using Shop.Config;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,17 +18,18 @@ CommonBootstrapper.Init(builder.Services);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+//}
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseApiCustomExceptionHandler();
 app.MapControllers();
 
 app.Run();

@@ -5,6 +5,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Common.Application;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Common.AspNetCore
@@ -83,7 +84,7 @@ namespace Common.AspNetCore
                     return ApiStatusCode.LogicError;
 
                 default:
-                    return ApiStatusCode.BadRequest;
+                    return ApiStatusCode.ServerError;
             }
         }
     }

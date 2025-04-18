@@ -32,6 +32,16 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Production 1": {
+      "commandName": "Project",
+      "Production": {
+        "commandName": "Project",
+        "environmentVariables": {
+          "ASPNETCORE_ENVIRONMENT": "Production"
+        },
+        "applicationUrl": "http://localhost:5000;https://localhost:5001"
+      }
     }
   },
   "$schema": "https://json.schemastore.org/launchsettings.json",
