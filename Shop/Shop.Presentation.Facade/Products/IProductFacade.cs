@@ -17,13 +17,13 @@ public interface IProductFacade
 
     Task<ProductDto?> GetProductById(long productId);
     Task<ProductDto?> GetProductBySlug(string slug);
-    Task<SingleProductDto?> GetProductBySlugForSinglePage(string slug);
+    //Task<SingleProductDto?> GetProductBySlugForSinglePage(string slug);
     Task<ProductFilterResult> GetProductsByFilter(ProductFilterParams filterParams);
-    Task<ProductShopResult> GetProductsForShop(ProductShopFilterParam filterParams);
+    //Task<ProductShopResult> GetProductsForShop(ProductShopFilterParam filterParams);
 }
 
 public class SingleProductDto
 {
     public ProductDto ProductDto { get; set; }
-    public List<InventoryDto> Inventories { get; set; }
+    //public List<InventoryDto> Inventories { get; set; }
 }

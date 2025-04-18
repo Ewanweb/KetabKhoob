@@ -1,8 +1,7 @@
 ﻿using Common.Application;
 using Shop.Application.Users.AddAddress;
-using Shop.Application.Users.DeleteAddress;
-using Shop.Application.Users.EditAddress;
-using Shop.Application.Users.SetActiveAddress;
+using Shop.Application.Users.DeleteUserAddress;
+using Shop.Application.Users.EditUserAddress;
 using Shop.Query.Users.DTOs;
 
 namespace Shop.Presentation.Facade.Users.Addresses
@@ -14,8 +13,8 @@ namespace Shop.Presentation.Facade.Users.Addresses
         Task<OperationResult> EditAddress(EditUserAddressCommand command);
         Task<OperationResult> DeleteAddress(DeleteUserAddressCommand command);
 
-        Task<AddressDto?> GetById(long userAddressId);
-        Task<List<AddressDto>> GetList(long userId);
-        Task<OperationResult> SetActiveAddress(SetActiveUserAddressCommand command);
+        //Task<AddressDto?> GetById(long userAddressId);
+        //Task<List<AddressDto>> GetList(long userId);
+        ////Task<OperationResult> SetActiveAddress(SetActiveUserAddressCommand command);
     }
 }

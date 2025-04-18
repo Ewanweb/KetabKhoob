@@ -2,9 +2,9 @@
 using MediatR;
 using Shop.Application.Roles.Create;
 using Shop.Application.Roles.Edit;
-using Shop.Query.Roles.DTOs;
+using Shop.Query.Roles;
 using Shop.Query.Roles.GetById;
-using Shop.Query.Roles.GetList;
+using Shop.Query.Roles.GetByList;
 
 namespace Shop.Presentation.Facade.Roles;
 

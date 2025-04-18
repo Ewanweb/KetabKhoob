@@ -7,6 +7,8 @@ using Common.Application;
 using MediatR;
 using Shop.Application.Categories.AddChild;
 using Shop.Application.Categories.Create;
+using Shop.Application.Categories.Delete;
+using Shop.Application.Categories.Edit;
 using Shop.Application.Comments.Edit;
 using Shop.Query.Categories.DTOs;
 using Shop.Query.Categories.GeList;
@@ -29,7 +31,7 @@ namespace Shop.Presentation.Facade.Categories
             return await _mediator.Send(command);
         }
 
-        public async Task<OperationResult> Edit(EditCommentCommand command)
+        public async Task<OperationResult> Edit(EditCategoryCommand command)
         {
             return await _mediator.Send(command);
         }
@@ -37,6 +39,11 @@ namespace Shop.Presentation.Facade.Categories
         public async Task<OperationResult> Create(CreateCategoryCommand command)
         {
             return await _mediator.Send(command);
+        }
+
+        public async Task<OperationResult> Remove(long categoryId)
+        {
+            return await _mediator.Send(new RemoveCategoryCommand(categoryId));
         }
 
         public async Task<CategoryDto> GetCategoryById(long id)

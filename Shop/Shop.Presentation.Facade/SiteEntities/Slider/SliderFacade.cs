@@ -1,11 +1,10 @@
 ﻿using Common.Application;
 using MediatR;
 using Shop.Application.SiteEntities.Sliders.Create;
-using Shop.Application.SiteEntities.Sliders.Delete;
 using Shop.Application.SiteEntities.Sliders.Edit;
-using Shop.Query.SiteEntities.DTOs;
+using Shop.Query.SiteEntities.Dtos;
 using Shop.Query.SiteEntities.Sliders.GetById;
-using Shop.Query.SiteEntities.Sliders.GetList;
+using Shop.Query.SiteEntities.Sliders.GetByList;
 
 namespace Shop.Presentation.Facade.SiteEntities.Slider;
 
@@ -28,10 +27,10 @@ internal class SliderFacade : ISliderFacade
         return await _mediator.Send(command);
     }
 
-    public async Task<OperationResult> DeleteSlider(long sliderId)
-    {
-        return await _mediator.Send(new DeleteSliderCommand(sliderId));
-    }
+    //public async Task<OperationResult> DeleteSlider(long sliderId)
+    //{
+    //    return await _mediator.Send(new DeleteSliderCommand(sliderId));
+    //}
 
     public async Task<SliderDto?> GetSliderById(long id)
     {

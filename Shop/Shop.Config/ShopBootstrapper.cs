@@ -36,6 +36,7 @@ namespace Shop.Config
             services.AddScoped<ISellerDomainService, SellerDomainService>();
             services.AddScoped<IFileService, FileService>();
 
+            services.AddDistributedMemoryCache();
 
             services.AddValidatorsFromAssembly(typeof(Directories).Assembly);
 

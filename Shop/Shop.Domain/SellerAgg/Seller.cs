@@ -32,7 +32,7 @@ namespace Shop.Domain.SellerAgg
             NationalCode = nationalCode;
             Inventories = new List<SellerInventory>();
 
-            if (domainService.CheckSellerInformation(this) is false)
+            if (domainService.IsValidSellerInformation(this) is false)
                 throw new InvalidDomainDataException("اطلاعات فروشنده نامعتبر است");
         }
 
