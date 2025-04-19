@@ -10,7 +10,7 @@ namespace Shop.Application.Users.AddAddress
 {
     public class AddUserAddressCommand : IBaseCommand
     {
-        public long UserId { get; internal set; }
+        public long UserId { get; set; }
         public string Shire { get; private set; }
         public string City { get; private set; }
         public string PostalCode { get; private set; }

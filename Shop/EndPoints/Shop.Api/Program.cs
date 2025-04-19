@@ -1,5 +1,6 @@
  using Common.Application;
  using Common.AspNetCore.Middlewares;
+ using Shop.Api.Infrastructure;
  using Shop.Config;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 
 builder.Services.RegisterShopDependencies(builder.Configuration);
+EndPointDiContainer.Init(builder.Services);
 CommonBootstrapper.Init(builder.Services);
 var app = builder.Build();
 

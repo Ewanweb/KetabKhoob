@@ -13,8 +13,8 @@ namespace Shop.Presentation.Facade.Users.Addresses
         Task<OperationResult> EditAddress(EditUserAddressCommand command);
         Task<OperationResult> DeleteAddress(DeleteUserAddressCommand command);
 
-        //Task<AddressDto?> GetById(long userAddressId);
-        //Task<List<AddressDto>> GetList(long userId);
+        Task<AddressDto?> GetById(long userAddressId);
+        Task<List<AddressDto>> GetList(long userId);
         ////Task<OperationResult> SetActiveAddress(SetActiveUserAddressCommand command);
     }
 }

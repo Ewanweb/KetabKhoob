@@ -7,6 +7,7 @@ using Shop.Application._Utilities;
 using Shop.Application.Categories;
 using Shop.Application.Products;
 using Shop.Application.Sellers;
+using Shop.Application.Users;
 using Shop.Domain.CategoryAgg.Services;
 using Shop.Domain.ProductAgg.ProductDomainService;
 using Shop.Domain.SellerAgg.Services;
