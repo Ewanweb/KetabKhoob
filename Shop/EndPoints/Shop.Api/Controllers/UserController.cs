@@ -61,13 +61,6 @@ namespace Shop.Api.Controllers
         //    return CommandResult(result);
         //}
 
-        [HttpPost("Register")]
-        public async Task<ApiResult> Register(RegisterUserCommand command)
-        {
-            var result = await _userFacade.RegisterUser(command);
-
-            return CommandResult(result);
-        }
 
         [HttpPut]
         public async Task<ApiResult> Edit(EditUserCommand command)

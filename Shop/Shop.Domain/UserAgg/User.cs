@@ -24,6 +24,7 @@ namespace Shop.Domain.UserAgg
             Password = password;
             Gender = gender;
             AvatarName = "noImage.png";
+            IsActive = true;
         }
 
         private User()
@@ -38,6 +39,7 @@ namespace Shop.Domain.UserAgg
         public string Password { get; private set; }
         public Gender Gender { get; private set; }
         public string AvatarName { get; private set; }
+        public bool IsActive { get; private set; }
         public List<UserRole> Roles { get; private set; }
         public List<Wallet> Wallets { get; private set; }
         public List<UserAddress> Addresses { get; private set; }
@@ -54,6 +56,12 @@ namespace Shop.Domain.UserAgg
 
         public static User RegisterUser(string phoneNumber, string password, IUserDomainService userDomainService)
         {
+            if (userDomainService.IsPhoneNumberExist(phoneNumber))
+                throw new InvalidOperationException("شماره تلفن قبلاً ثبت شده است.");
+
+            if (string.IsNullOrWhiteSpace(password))
+                throw new InvalidOperationException("رمز عبور نمی‌تواند خالی باشد.");
+
             return new User("", "", phoneNumber, null, password, Gender.None, userDomainService);
         }
 
@@ -105,21 +113,21 @@ namespace Shop.Domain.UserAgg
             Roles.AddRange(roles);
         }
 
-        public void Guard(string phoneNumber, string email, IUserDomainService userDomainService)
+        public void Guard(string phoneNumber, string? email, IUserDomainService userDomainService)
         {
             if (phoneNumber is null)
                 throw new NullOrEmptyDomainDataException("شماره موبایل خالی است");
 
-            NullOrEmptyDomainDataException.CheckString(email, nameof(email));
 
 
             if (email.IsValidEmail())
                 throw new InvalidDomainDataException("ایمیل نامعتبر است");
 
 
-            if (email != Email)
-                if (userDomainService.IsEmailExist(email))
-                    throw new InvalidDomainDataException("ایمیل تکراری است");
+            if (!string.IsNullOrWhiteSpace(email))
+                if (email != Email)
+                    if (userDomainService.IsEmailExist(email))
+                        throw new InvalidDomainDataException("ایمیل تکراری است");
 
 
         }
