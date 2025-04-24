@@ -35,6 +35,7 @@
     },
     "Production 1": {
       "commandName": "Project",
+      "launchBrowser": true,
       "Production": {
         "commandName": "Project",
         "environmentVariables": {

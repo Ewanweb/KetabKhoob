@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Shop.Api.Infrastructure.JWTUtil;
 using Shop.Api.ViewModels.Auth;
 using Shop.Application.Users.Register;
+using Shop.Domain.UserAgg;
 using Shop.Presentation.Facade.Users;
 
 namespace Shop.Api.Controllers
@@ -50,6 +51,8 @@ namespace Shop.Api.Controllers
         {
             var command = new RegisterUserCommand(viewModel.PhoneNumber, viewModel.Password);
             var result = await _userFacade.RegisterUser(command);
+
+            var user = await _userFacade.GetUserByPhoneNumber(viewModel.PhoneNumber);
 
             return CommandResult(result);
         }
