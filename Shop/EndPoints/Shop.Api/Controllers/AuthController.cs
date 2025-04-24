@@ -52,8 +52,6 @@ namespace Shop.Api.Controllers
             var command = new RegisterUserCommand(viewModel.PhoneNumber, viewModel.Password);
             var result = await _userFacade.RegisterUser(command);
 
-            var user = await _userFacade.GetUserByPhoneNumber(viewModel.PhoneNumber);
-
             return CommandResult(result);
         }
     }

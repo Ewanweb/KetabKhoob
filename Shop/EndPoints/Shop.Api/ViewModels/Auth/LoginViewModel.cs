@@ -7,6 +7,7 @@ namespace Shop.Api.ViewModels.Auth
         [Required(ErrorMessage = "شماره تلفن را وارد کنید")]
         [MaxLength(11, ErrorMessage = "شماره تلفن نا معتبر است")]
         [MinLength(11, ErrorMessage = "شماره تلفن نا معتبر است")]
+        [Phone]
         public string PhoneNumber { get; set; }
 
         [Required(ErrorMessage = "کلمه عبور را وارد کنید")]

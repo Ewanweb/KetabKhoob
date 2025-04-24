@@ -19,7 +19,7 @@ public class ModelStateUtil
 
                     if (value.ValidationState == ModelValidationState.Invalid)
                     {
-                        errors.Add(key, value.Errors.Select(x => string.IsNullOrEmpty(x.ErrorMessage) ? x.Exception?.Message : x.ErrorMessage).ToList());
+                        errors.Add(key, value.Errors.Select(x => string.IsNullOrEmpty(x.ErrorMessage) ? x.Exception?.Message : x.ErrorMessage).ToList()!);
                     }
                 }
             }
